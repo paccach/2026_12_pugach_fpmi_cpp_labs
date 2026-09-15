@@ -1,7 +1,7 @@
+#include <iostream>
 
-// solve task with usage of
-// dymanic arrays
-int main() {
+int main()
+{
 
     return 0;
 }
