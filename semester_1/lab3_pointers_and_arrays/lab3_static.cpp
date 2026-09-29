@@ -4,62 +4,75 @@
 using std::cin;
 using std::cout;
 
-void alg(int arr[], int n)
+void vivod(int &n, int a[])
+{
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+    cout << std::endl;
+}
+
+void alg(int n, int arr[])
 {
     int a, b;
-    cout << "ââåäèòå a è b:\n";
-    if (!(cin >> a >> b) || a > b || a > n || b > n)
+    cout << "Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ a Ð¸ b:\n";
+    cin >> a >> b;
+    int j = 0;
+    for (int i = 0; i < n; ++i)
     {
-        cout << "error";
-        return;
+        if (arr[i] < a || arr[i] > b)
+        {
+            int x = arr[i];
+            for (int k = i; k > j; k--)
+                arr[k] = arr[k - 1];
+            arr[j] = x;
+            j++;
+        }
     }
+    return;
+}
 
-    ///
-    int res[n];
+void vvod_0(int &n, int a[])
+{
+    cout << "Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: ";
+    cin >> n;
+    cout << "Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << n << " ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°:\n";
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+}
+
+void vvod_1(int &n, int &l, int &r, int a[])
+{
+    cout << "Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð³Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ Ñ‡Ð¸ÑÐµÐ» Ð´Ð»Ñ Ñ€Ð°Ð½Ð´Ð¾Ð¸Ð½Ð¾Ð¹ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ (l r Ñ‡ÐµÑ€ÐµÐ· Ð¿Ñ€Ð¾Ð±ÐµÐ»): ";
+    cin >> l >> r;
+    std::mt19937 gen(12345);
+    std::uniform_int_distribution<int> dist(l, r);
+    cout << "Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: ";
+    cin >> n;
+    cout << "ÑÐ³ÐµÐ½ÐµÑ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²:\n";
     for (int i = 0; i < n; i++)
     {
-        if (i < a || i > b)
-
+        a[i] = dist(gen);
+        cout << a[i] << " ";
     }
-    ///
-
-    return;
+    cout << std::endl;
 }
 
 int main() //variant 6
 {
     setlocale(0, "");
-    int sp;
-    cout << "âûáåðèòå ñïîñîá ââîäà (0 - ââåñòè ñàìîìó, 1 - ðàíäîìíî çàïîëíèòü): ";
+    int sp, n, a[10000];
+    cout << "Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ¿Ð¾ÑÐ¾Ð± Ð²Ð²Ð¾Ð´Ð° (0 - Ð²Ð²ÐµÑÑ‚Ð¸ ÑÐ°Ð¼Ð¾Ð¼Ñƒ, 1 - Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ): ";
     cin >> sp;
     if (sp == 0)
     {
-        int n;
-        cout << "ââåäèòå êîëè÷åñòâî ýëåìåíòîâ: ";
-        cin >> n;
-        int a[n];
-        cout << "ââåäèòå " << n << " ýëåìåíòîâ ìàññèâà:\n";
-        for (int i = 0; i < n; i++)
-            cin >> a[i];
-        alg(a, n);
+        vvod_0(n, a);
     }
     else if (sp == 1)
     {
-        int l, r, n;
-        cout << "ââåäèòå ãðàíèöû ÷èñåë äëÿ ðàíäîèíîé ãåíåðàöèè (l r ÷åðåç ïðîáåë): ";
-        cin >> l >> r;
-        std::mt19937 gen(12345);
-        std::uniform_int_distribution<int> dist(l, r);
-        cout << "ââåäèòå êîëè÷åñòâî ýëåìåíòîâ: ";
-        cin >> n;
-        int a[n];
-        cout << "ñãåíåðèðîâàííûé ìàññèâ:\n";
-        for (int i = 0; i < n; i++)
-        {
-            a[i] = dist(gen);
-            cout << a[i] << " ";
-        }
-        alg(a, n);
+        int l, r;
+        vvod_1(n, l, r, a);
     }
+    alg(n, a);
+    vivod(n, a);
     return 0;
 }
