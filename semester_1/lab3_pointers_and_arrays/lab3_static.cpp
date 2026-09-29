@@ -4,14 +4,14 @@
 using std::cin;
 using std::cout;
 
-void vivod(int &n, int a[])
+void vivod(int &n, int *a)
 {
     for (int i = 0; i < n; i++)
         cout << a[i] << " ";
     cout << std::endl;
 }
 
-void alg(int n, int arr[])
+void alg(int n, int *arr)
 {
     int a, b;
     cout << "введите a и b:\n";
@@ -31,7 +31,7 @@ void alg(int n, int arr[])
     return;
 }
 
-void vvod_0(int &n, int a[])
+void vvod_0(int &n, int *a)
 {
     cout << "введите количество элементов: ";
     cin >> n;
@@ -40,7 +40,7 @@ void vvod_0(int &n, int a[])
         cin >> a[i];
 }
 
-void vvod_1(int &n, int &l, int &r, int a[])
+void vvod_1(int &n, int &l, int &r, int *a)
 {
     cout << "введите границы чисел для рандоиной генерации (l r через пробел): ";
     cin >> l >> r;

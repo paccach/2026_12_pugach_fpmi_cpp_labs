@@ -4,14 +4,14 @@
 using std::cin;
 using std::cout;
 
-void vivod(int &n, double a[])
+void vivod(int &n, double *a)
 {
     for (int i = 0; i < n; i++)
         cout << a[i] << " ";
     cout << std::endl;
 }
 
-void alg(int n, double arr[])
+void alg(int n, double *arr)
 {
     int N, j = n;
     cout << "введите N: ";
