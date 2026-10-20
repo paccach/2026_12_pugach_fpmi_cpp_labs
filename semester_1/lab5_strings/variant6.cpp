@@ -13,18 +13,16 @@ using std::string;
 vector < string > SplitWords(const string& s,
                              const string& delimeters)
 {
+    size_t i = 0;
     vector < string > words;
-    size_t beg_index = 0;
-    size_t end_index = s.find_first_of(delimeters);
-    while (beg_index != string::npos)
+    while (i < s.size())
     {
-        string word = s.substr(beg_index, end_index - beg_index);
-        if (!word.empty())
-        {
-            words.push_back(word);
-        }
-        beg_index = s.find_first_not_of(delimeters, end_index);
-        end_index = s.find_first_of(delimeters, beg_index);
+        bool isdel = delimeters.find(s[i]) != string::npos;
+        size_t start = i;
+        while (i < s.size() &&
+               (delimeters.find(s[i]) != string::npos) == isdel)
+            i++;
+        words.push_back(s.substr(start, i - start));
     }
     return words;
 }
