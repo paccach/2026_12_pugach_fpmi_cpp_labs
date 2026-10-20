@@ -87,6 +87,6 @@ int main()
         }
     }
     for (size_t i = 0; i < words.size(); i++)
-        cout << words[i] << " ";
+        cout << words[i];
     return 0;
 }
