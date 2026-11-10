@@ -1,0 +1,13 @@
+11/10/26 09:18:19 | opening file input.txt
+11/10/26 09:18:19 | file input.txt has been opened successfully
+11/10/26 09:18:19 | reading lines from input.txt
+11/10/26 09:18:19 | got line: ,
+11/10/26 09:18:19 | opening file output.txt
+11/10/26 09:18:19 | file output.txt has been opened successfully
+11/10/26 09:18:19 | got line: 1,2,3,4,5,6
+11/10/26 09:18:19 | finding and changing max number
+11/10/26 09:18:19 | got line: hekgeyr,ergerg,erg
+11/10/26 09:18:19 | finding and changing max number
+11/10/26 09:18:19 | string has not numbers
+11/10/26 09:18:19 | program has ended with code 0
+
